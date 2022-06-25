@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherVC" customModule="WeatherToday" customModuleProvider="target">
+            <connections>
+                <outlet property="background" destination="TWN-79-jXy" id="CyK-6E-3nx"/>
+                <outlet property="cityNameLabel" destination="WuI-pw-iTt" id="sbF-fH-Tt1"/>
+                <outlet property="collectionView" destination="VlZ-FS-sZr" id="jng-hF-3Yi"/>
+                <outlet property="currentCityTempLabel" destination="fI3-tb-YjU" id="CUX-Vy-ZUz"/>
+                <outlet property="currentDateLabel" destination="nVN-xD-d1F" id="vve-uZ-mTT"/>
+                <outlet property="tableView" destination="gc2-om-VOy" id="OOg-a6-k6B"/>
+                <outlet property="view" destination="Jwq-na-m7j" id="SaG-mw-V0G"/>
+                <outlet property="weatherImageView" destination="FbA-eU-DHE" id="1JY-gI-x3s"/>
+                <outlet property="weatherTypeLabel" destination="nzZ-DE-qaY" id="BGM-BU-5vD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Jwq-na-m7j">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="After Noon" translatesAutoresizingMaskIntoConstraints="NO" id="TWN-79-jXy">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-iX-FQT">
+                    <rect key="frame" x="0.0" y="64" width="414" height="71"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-pw-iTt">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="FhO-1D-Dsk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzZ-DE-qaY">
+                            <rect key="frame" x="0.0" y="43" width="414" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="Lwe-09-tid"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="otC-lf-59y">
+                    <rect key="frame" x="157" y="141" width="100" height="207"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partlysunny" translatesAutoresizingMaskIntoConstraints="NO" id="FbA-eU-DHE">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="WPX-kE-XBy"/>
+                                <constraint firstAttribute="height" constant="100" id="t3l-R1-Cl5"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fI3-tb-YjU">
+                            <rect key="frame" x="11.5" y="104" width="77.5" height="75.5"/>
+                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="65"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVN-xD-d1F">
+                            <rect key="frame" x="27.5" y="183.5" width="45.5" height="23.5"/>
+                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VlZ-FS-sZr">
+                    <rect key="frame" x="0.0" y="368" width="414" height="108"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="108" id="qBz-zi-SEn"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9ZT-AH-ov0">
+                        <size key="itemSize" width="63" height="87"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                </collectionView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gc2-om-VOy">
+                    <rect key="frame" x="0.0" y="476" width="414" height="386"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="h2T-of-aAs"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="otC-lf-59y" firstAttribute="centerX" secondItem="Jwq-na-m7j" secondAttribute="centerX" id="0m3-s0-drV"/>
+                <constraint firstItem="gc2-om-VOy" firstAttribute="leading" secondItem="h2T-of-aAs" secondAttribute="leading" id="1eF-sY-qe0"/>
+                <constraint firstItem="gc2-om-VOy" firstAttribute="top" secondItem="VlZ-FS-sZr" secondAttribute="bottom" id="3on-Ta-8LH"/>
+                <constraint firstItem="q2W-iX-FQT" firstAttribute="top" secondItem="h2T-of-aAs" secondAttribute="top" constant="20" id="644-8K-3ry"/>
+                <constraint firstItem="TWN-79-jXy" firstAttribute="top" secondItem="Jwq-na-m7j" secondAttribute="top" id="8Vz-8M-oaO"/>
+                <constraint firstItem="VlZ-FS-sZr" firstAttribute="trailing" secondItem="h2T-of-aAs" secondAttribute="trailing" id="9cQ-cV-ilr"/>
+                <constraint firstItem="h2T-of-aAs" firstAttribute="trailing" secondItem="q2W-iX-FQT" secondAttribute="trailing" id="KUx-k3-44G"/>
+                <constraint firstItem="VlZ-FS-sZr" firstAttribute="top" secondItem="otC-lf-59y" secondAttribute="bottom" constant="20" id="Kzq-Ub-QKA"/>
+                <constraint firstItem="VlZ-FS-sZr" firstAttribute="leading" secondItem="h2T-of-aAs" secondAttribute="leading" id="MNX-gv-qkp"/>
+                <constraint firstItem="q2W-iX-FQT" firstAttribute="leading" secondItem="h2T-of-aAs" secondAttribute="leading" id="RRX-r4-p4x"/>
+                <constraint firstItem="gc2-om-VOy" firstAttribute="bottom" secondItem="h2T-of-aAs" secondAttribute="bottom" id="Xiq-HE-ESf"/>
+                <constraint firstItem="TWN-79-jXy" firstAttribute="trailing" secondItem="h2T-of-aAs" secondAttribute="trailing" id="gzv-Fh-id4"/>
+                <constraint firstItem="TWN-79-jXy" firstAttribute="bottom" secondItem="Jwq-na-m7j" secondAttribute="bottom" id="otR-9T-qQd"/>
+                <constraint firstItem="TWN-79-jXy" firstAttribute="leading" secondItem="h2T-of-aAs" secondAttribute="leading" id="tsv-Ka-l0u"/>
+                <constraint firstItem="gc2-om-VOy" firstAttribute="trailing" secondItem="h2T-of-aAs" secondAttribute="trailing" id="uOb-UG-vdr"/>
+                <constraint firstItem="otC-lf-59y" firstAttribute="top" secondItem="q2W-iX-FQT" secondAttribute="bottom" constant="6" id="yG4-Xc-tdj"/>
+            </constraints>
+            <point key="canvasLocation" x="-14" y="635"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="After Noon" width="375" height="667"/>
+        <image name="partlysunny" width="186" height="141"/>
+    </resources>
+</document>
