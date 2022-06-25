@@ -10,6 +10,10 @@ import RxSwift
 import RxCocoa
 import MLBase
 
+enum WeatherViewState: ViewState {
+    case close (String)
+}
+
 class WeatherVM: BaseVM {
     let cityName = BehaviorRelay<String>(value: "Barcelona")
     var currentLocation: (latitude:Double, longitude:Double) = (41.3874, 2.1686)
@@ -18,6 +22,10 @@ class WeatherVM: BaseVM {
     let currentDate = BehaviorRelay<Int?>(value: nil)
     let weatherType = BehaviorRelay<String?>(value: nil)
     let currentCityTemp = BehaviorRelay<Double?>(value: nil)
+
+    func closeButtonPressed() {
+        state.on(.next(WeatherViewState.close("Closed")))
+    }
 }
 
 extension WeatherVM {
@@ -33,6 +41,8 @@ extension WeatherVM {
             self.weatherType.accept(weather.currently?.summary)
             self.currentCityTemp.accept(weather.currently?.temperature)            
 
+            self.closeButtonPressed()
+            
         }, failed: { (error) in
             print(error)
         })
