@@ -1,0 +1,50 @@
+//
+//  EndPoints.swift
+//  WeatherToday
+//
+//  Created by alaattib on 27.07.2023.
+//
+
+enum Endpoints {
+    static let menu = "common/getmenu"
+    static let token = "auth/token"
+    static let login = "auth/login"
+    static let logoff = "auth/logoff"
+    static let otp = "auth/otp"
+    static let verifyOtp = "auth/verifyotp"
+    static let biometricRegister = "auth/biometric/register"
+    static let biometricLogin = "auth/biometriclogin"
+    static let rotaPlusInbox = "rota-plus/user-inbox-task"
+    static let rotaPlusMobileProcess = "rota-plus/mobile-process"
+    static let rotaPlusUserTaskAction = "rota-plus/user-task-action"
+    static let rotaPlusSaveUserTask = "rota-plus/save-user-task"
+    static let phoneBook = "phonebook/phonebookservice"
+    static let cisco = "auth/cisco"
+    static let getActivationCode = "auth/getactivationcode"
+    static let checkRemoteWorkDates = "remote-works/control-days"
+    static let createRemoteWorkProcess = "remote-works/create-process"
+    static let getBeamerPackages = "beamers/packages"
+    static let beamerApprovePackage = "beamers/approve-packages"
+    static let getBeamerSituations = "beamers/situations"
+    static let getBeamerApplications = "beamers/application"
+    static let getBeamerEnvironmentRelations = "beamers/environment-relations"
+    static let getBeamerPackageUsers = "beamers/package-users"
+    static let agendaGetCustomerPlus = "agenda/getcustomerplus"
+    static let searchCustomerGeneral = "agenda/searchcustomergeneral"
+    static let getCustomerKvkk = "agenda/getcustomer"
+    static let saveVisit = "agenda/savevisitagendacustomer"
+    static let getPortfoliosPlus = "agenda/getportfoliosplus"
+    static let getVisitReason = "agenda/getvisitreason"
+    static let getVisitResult = "agenda/getvisitresult"
+    static let createNewCustomer = "agenda/createnewcustomer"
+    static let ssoBranches = "agenda/getssobranch"
+    static let getVisitAgendaCustomer = "agenda/getvisitagendacustomer"
+    static let eftBankList = "agenda/pulleftbanklist"
+    static let sectorList = "agenda/getsectorsnew"
+    static let getLeaveTypes = "leave/getleavetypes"
+    static let getDelegationUsers = "delegation/user-search"
+    static let getDelegationsTasks = "delegation/tasks"
+    static let submitDelegation = "delegation/submit"
+    static let getRotaDelegatedRoles = "delegation/delegated-roles"
+    static let getLeaveSubTypes = "leave/getleavesubtypes"
+}

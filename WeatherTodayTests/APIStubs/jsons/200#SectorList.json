@@ -1,0 +1,32 @@
+{
+    "sectorList": [
+        {
+            "code": "1",
+            "name": "Finans"
+        },
+        {
+            "code": "10",
+            "name": "AĞAÇ VE AĞAÇ ÜRÜNLERİ SAN."
+        },
+        {
+            "code": "100",
+            "name": "Emlak alım-satım hizmetleri"
+        },
+        {
+            "code": "101",
+            "name": "Emlak kiralama hizmetleri"
+        },
+        {
+            "code": "102",
+            "name": "EMLAK KOMİSYONCULUĞU"
+        },
+        {
+            "code": "103",
+            "name": "FAKTORİNG ŞİRKETLERİ"
+        },
+        {
+            "code": "104",
+            "name": "FİNANSAL KİRALAMA ŞİRKETLERİ"
+        }
+    ]
+}
