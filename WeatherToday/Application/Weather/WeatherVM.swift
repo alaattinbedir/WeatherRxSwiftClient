@@ -39,9 +39,7 @@ extension WeatherVM {
             self.weather.accept(weather)
             self.currentDate.accept(weather.weather.currentDate)
             self.weatherType.accept(weather.weather.weatherType)
-            self.currentCityTemp.accept(weather.weather.currentCityTemp)
-
-            self.closeButtonPressed()
+            self.currentCityTemp.accept(weather.weather.currentCityTemp)            
             
         }, failed: { (error) in
             print(error)
