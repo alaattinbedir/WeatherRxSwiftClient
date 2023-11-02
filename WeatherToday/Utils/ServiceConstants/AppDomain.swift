@@ -41,9 +41,9 @@ enum AppDomain: Codable, CaseIterable, RawRepresentable {
     var domainUrl: String {
         switch self {
         case .production:
-            return "https://api.darksky.net/forecast/2bb07c3bece89caf533ac9a5d23d8417/"
+            return "https://api.openweathermap.org/data/2.5/"
         case .development:
-            return "https://api.darksky.net/forecast/2bb07c3bece89caf533ac9a5d23d8417/"
+            return "https://api.openweathermap.org/data/2.5/"
         case let .custom(ip):
             return ip
         }

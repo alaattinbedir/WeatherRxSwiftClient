@@ -1,46 +1,124 @@
-/*
-Copyright (c) 2019 Swift Models Generated from JSON powered by http://www.json4swift.com
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar
-
-*/
+//
+//  WeatherResponse.swift
+//  WeatherSwiftUI
+//
+//  Created by alaattib on 1.11.2023.
+//
 
 import Foundation
-struct WeatherResponse : Codable {
-    let latitude : Double?
-    let daily : Daily?
-    let currently : Currently?
-    let timezone : String?
-    let hourly : Hourly?
-    let longitude : Double?
-    let offset : Int?
+
+// MARK: - WeatherResponse
+struct WeatherResponse: Codable {
+    let current: Current?
+    let hourly: [Current]?
+    let daily: [Daily]?
+    let weather : WeatherModel
 
     enum CodingKeys: String, CodingKey {
-
-        case latitude = "latitude"
-        case daily = "daily"
-        case currently = "currently"
-        case timezone = "timezone"
-        case hourly = "hourly"
-        case longitude = "longitude"
-        case offset = "offset"
+        case current, hourly, daily
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        latitude = try values.decodeIfPresent(Double.self, forKey: .latitude)
-        daily = try values.decodeIfPresent(Daily.self, forKey: .daily)
-        currently = try values.decodeIfPresent(Currently.self, forKey: .currently)
-        timezone = try values.decodeIfPresent(String.self, forKey: .timezone)
-        hourly = try values.decodeIfPresent(Hourly.self, forKey: .hourly)
-        longitude = try values.decodeIfPresent(Double.self, forKey: .longitude)
-        offset = try values.decodeIfPresent(Int.self, forKey: .offset)
-    }
+        daily = try values.decodeIfPresent([Daily].self, forKey: .daily)
+        current = try values.decodeIfPresent(Current.self, forKey: .current)
+        hourly = try values.decodeIfPresent([Current].self, forKey: .hourly)
 
+        weather = WeatherModel (weatherType: current?.weather[0].description.rawValue.uppercased() ?? "",
+                                currentCityTemp: current?.temp ?? 0,
+                                currentDate: current?.dt ?? 0,
+                                responseDailyList: daily ?? [],
+                                responseHourlyList: hourly ?? [])
+    }
+}
+
+// MARK: - Current
+struct Current: Codable {
+    let dt: Int
+    let sunrise, sunset: Int?
+    let temp, feelsLike: Double
+    let pressure, humidity: Int
+    let dewPoint, uvi: Double
+    let clouds, visibility: Int
+    let windSpeed: Double
+    let windDeg: Int
+    let weather: [Weather]
+    let windGust, pop: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case dt, sunrise, sunset, temp
+        case feelsLike = "feels_like"
+        case pressure, humidity
+        case dewPoint = "dew_point"
+        case uvi, clouds, visibility
+        case windSpeed = "wind_speed"
+        case windDeg = "wind_deg"
+        case weather
+        case windGust = "wind_gust"
+        case pop
+    }
+}
+
+// MARK: - Weather
+struct Weather: Codable {
+    let id: Int
+    let main: Main
+    let description: Description
+    let icon: String
+}
+
+enum Description: String, Codable {
+    case brokenClouds = "broken clouds"
+    case clearSky = "clear sky"
+    case fewClouds = "few clouds"
+    case lightRain = "light rain"
+    case overcastClouds = "overcast clouds"
+    case scatteredClouds = "scattered clouds"
+}
+
+enum Main: String, Codable {
+    case clear = "Clear"
+    case clouds = "Clouds"
+    case rain = "Rain"
+}
+
+// MARK: - Daily
+struct Daily: Codable {
+    let dt, sunrise, sunset, moonrise: Int
+    let moonset: Int
+    let moonPhase: Double
+    let temp: Temp
+    let feelsLike: FeelsLike
+    let pressure, humidity: Int
+    let dewPoint, windSpeed: Double
+    let windDeg: Int
+    let windGust: Double
+    let weather: [Weather]
+    let clouds: Int
+    let pop, uvi: Double
+    let rain: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case dt, sunrise, sunset, moonrise, moonset
+        case moonPhase = "moon_phase"
+        case temp
+        case feelsLike = "feels_like"
+        case pressure, humidity
+        case dewPoint = "dew_point"
+        case windSpeed = "wind_speed"
+        case windDeg = "wind_deg"
+        case windGust = "wind_gust"
+        case weather, clouds, pop, uvi, rain
+    }
+}
+
+// MARK: - FeelsLike
+struct FeelsLike: Codable {
+    let day, night, eve, morn: Double
+}
+
+// MARK: - Temp
+struct Temp: Codable {
+    let day, min, max, night: Double
+    let eve, morn: Double
 }

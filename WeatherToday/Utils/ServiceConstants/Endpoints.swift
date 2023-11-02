@@ -8,5 +8,5 @@
 import Foundation
 
 struct Endpoints {
-    static let weather = "/weather"    
+    static let weather = "onecall?lat={0}&lon={1}&exclude=minutely,alert&appid={2}&units=metric"
 }

@@ -21,18 +21,9 @@ class HourlyCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configureCell(hourlyData: ResponseData) {
-        
-        if let time = hourlyData.time {
-            self.hourLabel.text = Utilities.sharedInstance.getHourFromDate(date: Double(time))
-        }
-        
-        if let tempHigh = hourlyData.temperature {
-            self.tempratureLabel.text = Utilities.sharedInstance.convertFahrenheitToCelsius(fahrenheit: tempHigh)
-        }else {
-            self.tempratureLabel.text = Utilities.sharedInstance.convertFahrenheitToCelsius(fahrenheit: 32.0)
-        }
-        
+    func configureCell(hourlyData: Current) {    
+        self.hourLabel.text = Utilities.sharedInstance.getHourFromDate(date: Double(hourlyData.dt))
+        self.tempratureLabel.text = Utilities.sharedInstance.convertFahrenheitToCelsius(fahrenheit: hourlyData.temp)
     }
 
 }
